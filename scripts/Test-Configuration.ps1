@@ -1,0 +1,47 @@
+[CmdletBinding()]
+param(
+    [Parameter(Mandatory)]
+    [ValidateScript({ Test-Path -LiteralPath $_ -PathType Leaf })]
+    [string] $ConfigurationPath
+)
+
+$ErrorActionPreference = 'Stop'
+Set-StrictMode -Version Latest
+
+$configuration = Get-Content -LiteralPath $ConfigurationPath -Raw | ConvertFrom-Json
+
+$requiredRootProperties = @('siteTitle', 'page', 'libraries', 'quickLinks', 'importantDates')
+foreach ($property in $requiredRootProperties) {
+    if ($null -eq $configuration.$property) {
+        throw "Configuration is missing required property '$property'."
+    }
+}
+
+if ([string]::IsNullOrWhiteSpace($configuration.siteTitle)) {
+    throw 'siteTitle cannot be empty.'
+}
+
+if ($configuration.page.name -notmatch '^[A-Za-z0-9-]+$') {
+    throw 'page.name may contain only letters, numbers and hyphens.'
+}
+
+if ($configuration.libraries.Count -lt 1) {
+    throw 'At least one document library is required.'
+}
+
+$duplicateTitles = $configuration.libraries |
+    Group-Object -Property title |
+    Where-Object Count -gt 1
+
+if ($duplicateTitles) {
+    throw "Duplicate library title: $($duplicateTitles.Name -join ', ')."
+}
+
+foreach ($library in $configuration.libraries) {
+    if ([string]::IsNullOrWhiteSpace($library.title) -or
+        $library.url -notmatch '^[A-Za-z0-9-]+$') {
+        throw "Invalid document library definition: $($library | ConvertTo-Json -Compress)."
+    }
+}
+
+Write-Host "Configuration '$ConfigurationPath' is valid."

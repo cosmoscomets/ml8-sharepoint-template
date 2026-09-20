@@ -1,0 +1,45 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Accounting & Audit",
+  "page": {
+    "name": "Accounting-Audit-Home",
+    "title": "Accounting & Audit",
+    "description": "Financial records, audit documentation, policies and reporting resources."
+  },
+  "libraries": [
+    {
+      "title": "Accounting Documents",
+      "url": "AccountingDocuments",
+      "description": "Accounting records and working documents"
+    },
+    {
+      "title": "Audit Documents",
+      "url": "AuditDocuments",
+      "description": "Internal and external audit documentation"
+    },
+    {
+      "title": "Policies and Procedures",
+      "url": "PoliciesProcedures",
+      "description": "Approved finance policies and procedures"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Accounting documents",
+      "url": "AccountingDocuments"
+    },
+    {
+      "label": "Audit documents",
+      "url": "AuditDocuments"
+    },
+    {
+      "label": "Policies and procedures",
+      "url": "PoliciesProcedures"
+    }
+  ],
+  "importantDates": [
+    "Financial year-end",
+    "Audit timetable",
+    "Tax lodgement dates"
+  ]
+}

@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.pfx
+*.p12
+*.cer
+.env

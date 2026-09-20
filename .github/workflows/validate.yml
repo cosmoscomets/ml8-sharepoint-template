@@ -1,0 +1,34 @@
+name: Validate SharePoint template
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate configuration
+        shell: pwsh
+        run: >-
+          ./scripts/Test-Configuration.ps1
+          -ConfigurationPath ./config/accounting-audit.json
+
+      - name: Install PowerShell analyzer
+        shell: pwsh
+        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+
+      - name: Analyze PowerShell
+        shell: pwsh
+        run: |
+          $results = Invoke-ScriptAnalyzer -Path ./scripts -Recurse -Severity Error
+          $results | Format-Table
+          if ($results) { throw 'PowerShell analysis failed.' }

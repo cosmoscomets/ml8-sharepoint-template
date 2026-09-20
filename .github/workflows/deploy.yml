@@ -1,0 +1,53 @@
+name: Deploy SharePoint template
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type DEPLOY to confirm the SharePoint change
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sharepoint-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ inputs.confirmation == 'DEPLOY' }}
+    runs-on: ubuntu-latest
+    environment: sharepoint-production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        shell: pwsh
+        run: Install-Module PnP.PowerShell -Scope CurrentUser -Force
+
+      - name: Validate configuration
+        shell: pwsh
+        run: >-
+          ./scripts/Test-Configuration.ps1
+          -ConfigurationPath ./config/accounting-audit.json
+
+      - name: Deploy Accounting & Audit template
+        shell: pwsh
+        env:
+          SITE_URL: ${{ vars.SHAREPOINT_SITE_URL }}
+          TENANT: ${{ vars.SHAREPOINT_TENANT }}
+          CLIENT_ID: ${{ secrets.ENTRA_CLIENT_ID }}
+          CERTIFICATE_BASE64: ${{ secrets.PNP_CERTIFICATE_BASE64 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.PNP_CERTIFICATE_PASSWORD }}
+        run: |
+          ./scripts/Deploy-SharePoint.ps1 `
+            -ConfigurationPath ./config/accounting-audit.json `
+            -SiteUrl $env:SITE_URL `
+            -Tenant $env:TENANT `
+            -ClientId $env:CLIENT_ID `
+            -CertificateBase64 $env:CERTIFICATE_BASE64 `
+            -CertificatePassword $env:CERTIFICATE_PASSWORD
