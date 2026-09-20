@@ -70,33 +70,33 @@ try {
         -Name $pageName `
         -Title $configuration.page.title `
         -LayoutType Home `
-        -HeaderLayoutType NoImage
+        -HeaderLayoutType ColorBlock
 
     Add-PnPPageSection -Page $page -SectionTemplate OneColumn -Order 1 -ZoneEmphasis 2
 
     $introHtml = @"
-<h1>$($configuration.page.title)</h1>
+<h1>📋 $($configuration.page.title)</h1>
 <p>$($configuration.page.description)</p>
 "@
     Add-PnPPageTextPart -Page $page -Section 1 -Column 1 -Order 1 -Text $introHtml
 
-    Add-PnPPageSection -Page $page -SectionTemplate TwoColumnLeft -Order 2
+    Add-PnPPageSection -Page $page -SectionTemplate TwoColumnLeft -Order 2 -ZoneEmphasis 1
 
     $quickLinkItems = foreach ($quickLink in $configuration.quickLinks) {
         $siteBaseUrl = "$($SiteUrl.TrimEnd('/'))/"
         $absoluteUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $quickLink.url).AbsoluteUri
-        "<li><a href='$absoluteUrl'>$($quickLink.label)</a></li>"
+        "<li>📁 <a href='$absoluteUrl'>$($quickLink.label)</a></li>"
     }
-    $quickLinksHtml = "<h2>Quick links</h2><ul>$($quickLinkItems -join '')</ul>"
+    $quickLinksHtml = "<h2>🔗 Quick links</h2><ul>$($quickLinkItems -join '')</ul>"
     Add-PnPPageTextPart -Page $page -Section 2 -Column 1 -Order 1 -Text $quickLinksHtml
 
     $dateItems = foreach ($date in $configuration.importantDates) {
-        "<li>$date</li>"
+        "<li>🗓️ $date</li>"
     }
-    $datesHtml = "<h2>Important dates</h2><ul>$($dateItems -join '')</ul>"
+    $datesHtml = "<h2>📅 Important dates</h2><ul>$($dateItems -join '')</ul>"
     Add-PnPPageTextPart -Page $page -Section 2 -Column 2 -Order 1 -Text $datesHtml
 
-    Add-PnPPageSection -Page $page -SectionTemplate OneColumn -Order 3
+    Add-PnPPageSection -Page $page -SectionTemplate OneColumn -Order 3 -ZoneEmphasis 3
     Add-PnPPageWebPart `
         -Page $page `
         -DefaultWebPartType SiteActivity `
