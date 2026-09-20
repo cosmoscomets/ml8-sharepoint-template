@@ -78,7 +78,7 @@ try {
 <h1>$($configuration.page.title)</h1>
 <p>$($configuration.page.description)</p>
 "@
-    Add-PnPPageText -Page $page -Section 1 -Column 1 -Order 1 -Text $introHtml
+    Add-PnPPageTextPart -Page $page -Section 1 -Column 1 -Order 1 -Text $introHtml
 
     Add-PnPPageSection -Page $page -SectionTemplate TwoColumnLeft -Order 2
 
@@ -88,13 +88,13 @@ try {
         "<li><a href='$absoluteUrl'>$($quickLink.label)</a></li>"
     }
     $quickLinksHtml = "<h2>Quick links</h2><ul>$($quickLinkItems -join '')</ul>"
-    Add-PnPPageText -Page $page -Section 2 -Column 1 -Order 1 -Text $quickLinksHtml
+    Add-PnPPageTextPart -Page $page -Section 2 -Column 1 -Order 1 -Text $quickLinksHtml
 
     $dateItems = foreach ($date in $configuration.importantDates) {
         "<li>$date</li>"
     }
     $datesHtml = "<h2>Important dates</h2><ul>$($dateItems -join '')</ul>"
-    Add-PnPPageText -Page $page -Section 2 -Column 2 -Order 1 -Text $datesHtml
+    Add-PnPPageTextPart -Page $page -Section 2 -Column 2 -Order 1 -Text $datesHtml
 
     Add-PnPPageSection -Page $page -SectionTemplate OneColumn -Order 3
     Add-PnPPageWebPart `
