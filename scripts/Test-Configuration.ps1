@@ -62,12 +62,12 @@ function Test-PnPImageAssetExists {
     }
 }
 
-if ($configuration.heroImage) {
+if ($configuration.PSObject.Properties['heroImage'] -and $configuration.heroImage) {
     Test-PnPImageAssetExists -RelativePath $configuration.heroImage.file
 }
 
 foreach ($quickLink in $configuration.quickLinks) {
-    if ($quickLink.image) {
+    if ($quickLink.PSObject.Properties['image'] -and $quickLink.image) {
         Test-PnPImageAssetExists -RelativePath $quickLink.image.file
     }
 }

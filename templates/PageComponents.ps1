@@ -27,11 +27,15 @@ function Add-PnPLinkTileRows {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] $Page,
-        [Parameter(Mandatory)] [array] $Links,
+        [Parameter(Mandatory)] [AllowEmptyCollection()] [array] $Links,
         [Parameter(Mandatory)] [string] $SiteUrl,
         [Parameter(Mandatory)] [int] $StartOrder,
         [string] $HeadingText
     )
+
+    if ($Links.Count -eq 0) {
+        return $StartOrder
+    }
 
     $order = $StartOrder
 

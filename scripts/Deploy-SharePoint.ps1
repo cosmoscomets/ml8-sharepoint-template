@@ -59,13 +59,14 @@ function Publish-PnPImageAsset {
     Write-Host "Uploading image asset: $RelativePath"
     Add-PnPFile -Path $localPath -Folder 'SiteAssets' | Out-Null
 
-    $webServerRelativeUrl = (Get-PnPWeb).ServerRelativeUrl.TrimEnd('/')
     $fileName = Split-Path -Path $localPath -Leaf
-    return "$webServerRelativeUrl/SiteAssets/$fileName"
+    return "$script:webServerRelativeUrl/SiteAssets/$fileName"
 }
 
 try {
     Write-Host "Provisioning $($configuration.siteTitle) at $SiteUrl"
+
+    $script:webServerRelativeUrl = (Get-PnPWeb).ServerRelativeUrl.TrimEnd('/')
 
     foreach ($libraryConfiguration in $configuration.libraries) {
         $library = Get-PnPList -Identity $libraryConfiguration.title -ErrorAction SilentlyContinue
