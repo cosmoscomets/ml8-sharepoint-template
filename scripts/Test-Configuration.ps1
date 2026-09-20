@@ -10,7 +10,7 @@ Set-StrictMode -Version Latest
 
 $configuration = Get-Content -LiteralPath $ConfigurationPath -Raw | ConvertFrom-Json
 
-$requiredRootProperties = @('siteTitle', 'page', 'libraries', 'quickLinks', 'importantDates')
+$requiredRootProperties = @('siteTitle', 'siteUrl', 'template', 'page', 'libraries', 'quickLinks', 'importantDates')
 foreach ($property in $requiredRootProperties) {
     if ($null -eq $configuration.$property) {
         throw "Configuration is missing required property '$property'."
@@ -19,6 +19,15 @@ foreach ($property in $requiredRootProperties) {
 
 if ([string]::IsNullOrWhiteSpace($configuration.siteTitle)) {
     throw 'siteTitle cannot be empty.'
+}
+
+if ($configuration.siteUrl -notmatch '^https://') {
+    throw 'siteUrl must be an https URL.'
+}
+
+$templateScript = Join-Path $PSScriptRoot "../templates/$($configuration.template).ps1"
+if (-not (Test-Path -LiteralPath $templateScript -PathType Leaf)) {
+    throw "Unknown page template '$($configuration.template)'. Expected a script at $templateScript."
 }
 
 if ($configuration.page.name -notmatch '^[A-Za-z0-9-]+$') {

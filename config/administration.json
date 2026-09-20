@@ -1,0 +1,43 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Administration",
+  "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/ADMINISTRATION",
+  "template": "landing-page",
+  "page": {
+    "name": "Administration-Home",
+    "title": "Administration",
+    "description": "Corporate administration resources, policies and templates."
+  },
+  "libraries": [
+    {
+      "title": "General Documents",
+      "url": "GeneralDocuments",
+      "description": "General administrative documents"
+    },
+    {
+      "title": "Policies and Procedures",
+      "url": "PoliciesProcedures",
+      "description": "Approved corporate policies and procedures"
+    },
+    {
+      "title": "Templates",
+      "url": "Templates",
+      "description": "Reusable document and form templates"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "General documents",
+      "url": "GeneralDocuments"
+    },
+    {
+      "label": "Policies and procedures",
+      "url": "PoliciesProcedures"
+    },
+    {
+      "label": "Templates",
+      "url": "Templates"
+    }
+  ],
+  "importantDates": []
+}

@@ -3,10 +3,12 @@
   "$id": "https://ml8.example/schemas/sharepoint-site.json",
   "title": "ML8 SharePoint site configuration",
   "type": "object",
-  "required": ["siteTitle", "page", "libraries", "quickLinks", "importantDates"],
+  "required": ["siteTitle", "siteUrl", "template", "page", "libraries", "quickLinks", "importantDates"],
   "properties": {
     "$schema": { "type": "string" },
     "siteTitle": { "type": "string", "minLength": 1 },
+    "siteUrl": { "type": "string", "pattern": "^https://" },
+    "template": { "type": "string", "enum": ["document-hub", "landing-page"] },
     "page": {
       "type": "object",
       "required": ["name", "title", "description"],

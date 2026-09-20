@@ -1,6 +1,8 @@
 {
   "$schema": "./site.schema.json",
   "siteTitle": "Accounting & Audit",
+  "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/AccountingAudit-Test",
+  "template": "document-hub",
   "page": {
     "name": "Accounting-Audit-Home",
     "title": "Accounting & Audit",
