@@ -13,7 +13,7 @@ param(
 
     [string] $Tenant,
     [string] $CertificateBase64,
-    [string] $CertificatePassword
+    [Security.SecureString] $CertificatePassword
 )
 
 $ErrorActionPreference = 'Stop'
@@ -29,13 +29,12 @@ if ($CertificateBase64) {
         throw 'Tenant and CertificatePassword are required for certificate authentication.'
     }
 
-    $securePassword = ConvertTo-SecureString $CertificatePassword -AsPlainText -Force
     Connect-PnPOnline `
         -Url $SiteUrl `
         -ClientId $ClientId `
         -Tenant $Tenant `
         -CertificateBase64Encoded $CertificateBase64 `
-        -CertificatePassword $securePassword
+        -CertificatePassword $CertificatePassword
 }
 else {
     Connect-PnPOnline -Url $SiteUrl -ClientId $ClientId -Interactive

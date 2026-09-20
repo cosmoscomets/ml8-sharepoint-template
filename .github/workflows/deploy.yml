@@ -44,10 +44,13 @@ jobs:
           CERTIFICATE_BASE64: ${{ secrets.PNP_CERTIFICATE_BASE64 }}
           CERTIFICATE_PASSWORD: ${{ secrets.PNP_CERTIFICATE_PASSWORD }}
         run: |
+          $secureCertificatePassword = ConvertTo-SecureString `
+            $env:CERTIFICATE_PASSWORD -AsPlainText -Force
+
           ./scripts/Deploy-SharePoint.ps1 `
             -ConfigurationPath ./config/accounting-audit.json `
             -SiteUrl $env:SITE_URL `
             -Tenant $env:TENANT `
             -ClientId $env:CLIENT_ID `
             -CertificateBase64 $env:CERTIFICATE_BASE64 `
-            -CertificatePassword $env:CERTIFICATE_PASSWORD
+            -CertificatePassword $secureCertificatePassword
