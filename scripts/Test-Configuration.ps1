@@ -53,4 +53,23 @@ foreach ($library in $configuration.libraries) {
     }
 }
 
+function Test-PnPImageAssetExists {
+    param([Parameter(Mandatory)] [string] $RelativePath)
+
+    $localPath = Join-Path $PSScriptRoot ".." $RelativePath
+    if (-not (Test-Path -LiteralPath $localPath -PathType Leaf)) {
+        throw "Image asset not found: $localPath"
+    }
+}
+
+if ($configuration.heroImage) {
+    Test-PnPImageAssetExists -RelativePath $configuration.heroImage.file
+}
+
+foreach ($quickLink in $configuration.quickLinks) {
+    if ($quickLink.image) {
+        Test-PnPImageAssetExists -RelativePath $quickLink.image.file
+    }
+}
+
 Write-Host "Configuration '$ConfigurationPath' is valid."

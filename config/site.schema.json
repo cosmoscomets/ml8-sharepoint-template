@@ -9,6 +9,15 @@
     "siteTitle": { "type": "string", "minLength": 1 },
     "siteUrl": { "type": "string", "pattern": "^https://" },
     "template": { "type": "string", "enum": ["document-hub", "landing-page"] },
+    "heroImage": {
+      "type": "object",
+      "required": ["file", "alt"],
+      "properties": {
+        "file": { "type": "string", "minLength": 1 },
+        "alt": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
     "page": {
       "type": "object",
       "required": ["name", "title", "description"],
@@ -40,7 +49,16 @@
         "required": ["label", "url"],
         "properties": {
           "label": { "type": "string", "minLength": 1 },
-          "url": { "type": "string", "minLength": 1 }
+          "url": { "type": "string", "minLength": 1 },
+          "image": {
+            "type": "object",
+            "required": ["file", "alt"],
+            "properties": {
+              "file": { "type": "string", "minLength": 1 },
+              "alt": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
         },
         "additionalProperties": false
       }

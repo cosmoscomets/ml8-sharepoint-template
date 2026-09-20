@@ -3,10 +3,14 @@
   "siteTitle": "Accounting & Audit",
   "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/AccountingAudit-Test",
   "template": "document-hub",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "An accountant using a calculator at a desk"
+  },
   "page": {
     "name": "Accounting-Audit-Home",
     "title": "Accounting & Audit",
-    "description": "Financial records, audit documentation, policies and reporting resources."
+    "description": "Your one-stop hub for financial records, audit trails and approved policies — built to keep reporting accurate and audit-ready."
   },
   "libraries": [
     {
@@ -28,15 +32,27 @@
   "quickLinks": [
     {
       "label": "Accounting documents",
-      "url": "AccountingDocuments"
+      "url": "AccountingDocuments",
+      "image": {
+        "file": "assets/accounting-documents.jpg",
+        "alt": "Rows of colorful ring binders organized on office shelves"
+      }
     },
     {
       "label": "Audit documents",
-      "url": "AuditDocuments"
+      "url": "AuditDocuments",
+      "image": {
+        "file": "assets/audit-documents.jpg",
+        "alt": "A hand marking off items on a checklist"
+      }
     },
     {
       "label": "Policies and procedures",
-      "url": "PoliciesProcedures"
+      "url": "PoliciesProcedures",
+      "image": {
+        "file": "assets/accounting-policies.jpg",
+        "alt": "A person holding a policy handbook"
+      }
     }
   ],
   "importantDates": [

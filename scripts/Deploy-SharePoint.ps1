@@ -40,6 +40,30 @@ else {
     Connect-PnPOnline -Url $SiteUrl -ClientId $ClientId -Interactive
 }
 
+function Add-PnPOptionalProperty {
+    param($InputObject, [Parameter(Mandatory)] [string] $Name)
+
+    if (-not $InputObject.PSObject.Properties[$Name]) {
+        $InputObject | Add-Member -NotePropertyName $Name -NotePropertyValue $null
+    }
+}
+
+function Publish-PnPImageAsset {
+    param([Parameter(Mandatory)] [string] $RelativePath)
+
+    $localPath = Join-Path $PSScriptRoot ".." $RelativePath
+    if (-not (Test-Path -LiteralPath $localPath -PathType Leaf)) {
+        throw "Image asset not found: $localPath"
+    }
+
+    Write-Host "Uploading image asset: $RelativePath"
+    Add-PnPFile -Path $localPath -Folder 'SiteAssets' | Out-Null
+
+    $webServerRelativeUrl = (Get-PnPWeb).ServerRelativeUrl.TrimEnd('/')
+    $fileName = Split-Path -Path $localPath -Leaf
+    return "$webServerRelativeUrl/SiteAssets/$fileName"
+}
+
 try {
     Write-Host "Provisioning $($configuration.siteTitle) at $SiteUrl"
 
@@ -55,6 +79,23 @@ try {
         }
         else {
             Write-Host "Library already exists: $($libraryConfiguration.title)"
+        }
+    }
+
+    Add-PnPOptionalProperty -InputObject $configuration -Name 'heroImage'
+
+    $heroImageUrl = $null
+    $heroImageAlt = $null
+    if ($configuration.heroImage) {
+        $heroImageUrl = Publish-PnPImageAsset -RelativePath $configuration.heroImage.file
+        $heroImageAlt = $configuration.heroImage.alt
+    }
+
+    foreach ($quickLink in $configuration.quickLinks) {
+        Add-PnPOptionalProperty -InputObject $quickLink -Name 'image'
+        Add-PnPOptionalProperty -InputObject $quickLink -Name 'imageUrl'
+        if ($quickLink.image) {
+            $quickLink.imageUrl = Publish-PnPImageAsset -RelativePath $quickLink.image.file
         }
     }
 
@@ -78,7 +119,8 @@ try {
     }
 
     Write-Host "Applying page template: $($configuration.template)"
-    & $templateScript -Page $page -Configuration $configuration -SiteUrl $SiteUrl
+    & $templateScript -Page $page -Configuration $configuration -SiteUrl $SiteUrl `
+        -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt
 
     Set-PnPPage -Identity $pageFileName -Publish
     Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName"

@@ -3,10 +3,14 @@
   "siteTitle": "Administration",
   "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/ADMINISTRATION",
   "template": "landing-page",
+  "heroImage": {
+    "file": "assets/administration-hero.jpg",
+    "alt": "Four coworkers smiling and collaborating around a laptop"
+  },
   "page": {
     "name": "Administration-Home",
     "title": "Administration",
-    "description": "Corporate administration resources, policies and templates."
+    "description": "Everything the team needs to stay organised — shared documents, house policies and ready-to-use templates, all in one place."
   },
   "libraries": [
     {
@@ -28,15 +32,27 @@
   "quickLinks": [
     {
       "label": "General documents",
-      "url": "GeneralDocuments"
+      "url": "GeneralDocuments",
+      "image": {
+        "file": "assets/general-documents.jpg",
+        "alt": "A pile of printed papers"
+      }
     },
     {
       "label": "Policies and procedures",
-      "url": "PoliciesProcedures"
+      "url": "PoliciesProcedures",
+      "image": {
+        "file": "assets/administration-policies.jpg",
+        "alt": "A gavel and an open book on a table"
+      }
     },
     {
       "label": "Templates",
-      "url": "Templates"
+      "url": "Templates",
+      "image": {
+        "file": "assets/templates.jpg",
+        "alt": "A paper with a diagram layout on a desk"
+      }
     }
   ],
   "importantDates": []
