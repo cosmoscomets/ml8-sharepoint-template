@@ -19,7 +19,7 @@ if ($Configuration.heroCta) {
 }
 
 Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order 1 -ZoneEmphasis 2 | Out-Null
-Add-PnPHeroOverlay -Page $Page -Section 1 `
+Add-PnPHeroBanner -Page $Page -Section 1 `
     -Title "📋 $($Configuration.page.title)" `
     -Description $Configuration.page.description `
     -ImageUrl $HeroImageUrl `
