@@ -5,9 +5,13 @@
   "template": "document-hub",
   "heroImage": {
     "file": "assets/accounting-audit-hero.jpg",
-    "alt": "An accountant using a calculator at a desk"
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
   },
-  "accentColor": "#5C2D91",
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
   "heroCta": {
     "label": "View accounting documents",
     "url": "AccountingDocuments"

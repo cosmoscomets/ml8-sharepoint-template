@@ -9,10 +9,18 @@ function Add-PnPHeroBanner {
         [string] $ImageAlt,
         [string] $LinkText,
         [string] $LinkUrl,
-        [string] $AccentColor
+        [string] $AccentColor,
+        [string] $LogoUrl,
+        [string] $LogoAlt
     )
 
     $order = 1
+    if ($LogoUrl) {
+        Add-PnPPageImageWebPart -Page $Page -Section $Section -Column 1 -Order $order `
+            -ImageUrl $LogoUrl -AlternativeText $LogoAlt -ImageWidth 500 -ImageHeight 100 | Out-Null
+        $order++
+    }
+
     if ($ImageUrl) {
         Add-PnPPageImageWebPart -Page $Page -Section $Section -Column 1 -Order $order `
             -ImageUrl $ImageUrl -AlternativeText $ImageAlt -ImageWidth 1920 -ImageHeight 640 | Out-Null

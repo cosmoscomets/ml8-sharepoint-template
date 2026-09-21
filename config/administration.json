@@ -5,9 +5,13 @@
   "template": "landing-page",
   "heroImage": {
     "file": "assets/administration-hero.jpg",
-    "alt": "Four coworkers smiling and collaborating around a laptop"
+    "alt": "Silhouetted mountain ranges under a golden sunset sky"
   },
-  "accentColor": "#5C2D91",
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
   "page": {
     "name": "Administration-Home",
     "title": "Administration",
