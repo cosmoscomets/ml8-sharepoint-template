@@ -13,7 +13,7 @@ function Add-PnPHeroBanner {
     $order = 1
     if ($ImageUrl) {
         Add-PnPPageImageWebPart -Page $Page -Section $Section -Column 1 -Order $order `
-            -ImageUrl $ImageUrl -AlternativeText $ImageAlt -ImageWidth 1200 -ImageHeight 400 | Out-Null
+            -ImageUrl $ImageUrl -AlternativeText $ImageAlt -ImageWidth 1920 -ImageHeight 640 | Out-Null
         $order++
     }
 
