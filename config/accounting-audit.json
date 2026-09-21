@@ -8,6 +8,10 @@
     "alt": "An accountant using a calculator at a desk"
   },
   "accentColor": "#5C2D91",
+  "heroCta": {
+    "label": "View accounting documents",
+    "url": "AccountingDocuments"
+  },
   "page": {
     "name": "Accounting-Audit-Home",
     "title": "Accounting & Audit",

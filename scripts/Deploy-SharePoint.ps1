@@ -85,6 +85,7 @@ try {
 
     Add-PnPOptionalProperty -InputObject $configuration -Name 'heroImage'
     Add-PnPOptionalProperty -InputObject $configuration -Name 'accentColor'
+    Add-PnPOptionalProperty -InputObject $configuration -Name 'heroCta'
 
     $heroImageUrl = $null
     $heroImageAlt = $null

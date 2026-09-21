@@ -19,6 +19,15 @@
       "additionalProperties": false
     },
     "accentColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "heroCta": {
+      "type": "object",
+      "required": ["label", "url"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
     "page": {
       "type": "object",
       "required": ["name", "title", "description"],
