@@ -66,10 +66,9 @@ if ($configuration.PSObject.Properties['heroImage'] -and $configuration.heroImag
     Test-PnPImageAssetExists -RelativePath $configuration.heroImage.file
 }
 
-foreach ($quickLink in $configuration.quickLinks) {
-    if ($quickLink.PSObject.Properties['image'] -and $quickLink.image) {
-        Test-PnPImageAssetExists -RelativePath $quickLink.image.file
-    }
+if ($configuration.PSObject.Properties['accentColor'] -and $configuration.accentColor -and
+    $configuration.accentColor -notmatch '^#[0-9A-Fa-f]{6}$') {
+    throw 'accentColor must be a 6-digit hex color, e.g. #5C2D91.'
 }
 
 Write-Host "Configuration '$ConfigurationPath' is valid."

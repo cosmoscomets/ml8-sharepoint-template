@@ -6,7 +6,8 @@ function Add-PnPHeroBanner {
         [Parameter(Mandatory)] [string] $Title,
         [Parameter(Mandatory)] [string] $Description,
         [string] $ImageUrl,
-        [string] $ImageAlt
+        [string] $ImageAlt,
+        [string] $AccentColor
     )
 
     $order = 1
@@ -17,58 +18,55 @@ function Add-PnPHeroBanner {
     }
 
     $introHtml = @"
-<h1>$Title</h1>
+<h1 style="color:$AccentColor;">$Title</h1>
 <p>$Description</p>
 "@
     Add-PnPPageTextPart -Page $Page -Section $Section -Column 1 -Order $order -Text $introHtml
 }
 
-function Add-PnPLinkTileRows {
+function Add-PnPCalloutButtons {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] $Page,
         [Parameter(Mandatory)] [AllowEmptyCollection()] [array] $Links,
         [Parameter(Mandatory)] [string] $SiteUrl,
-        [Parameter(Mandatory)] [int] $StartOrder,
-        [string] $HeadingText
+        [Parameter(Mandatory)] [int] $Order,
+        [string] $HeadingText,
+        [string] $AccentColor
     )
 
     if ($Links.Count -eq 0) {
-        return $StartOrder
+        return
     }
 
-    $order = $StartOrder
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0
 
-    if ($HeadingText) {
-        Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $order -ZoneEmphasis 0
-        Add-PnPPageTextPart -Page $Page -Section $order -Column 1 -Order 1 -Text "<h2>$HeadingText</h2>"
-        $order++
-    }
-
-    $sectionTemplateByCount = @{ 1 = 'OneColumn'; 2 = 'TwoColumn'; 3 = 'ThreeColumn' }
     $siteBaseUrl = "$($SiteUrl.TrimEnd('/'))/"
-
-    for ($i = 0; $i -lt $Links.Count; $i += 3) {
-        $chunk = @($Links[$i..([Math]::Min($i + 2, $Links.Count - 1))])
-        Add-PnPPageSection -Page $Page -SectionTemplate $sectionTemplateByCount[$chunk.Count] -Order $order -ZoneEmphasis 1
-
-        $column = 1
-        foreach ($link in $chunk) {
-            $absoluteUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $link.url).AbsoluteUri
-            if ($link.imageUrl) {
-                Add-PnPPageImageWebPart -Page $Page -Section $order -Column $column -Order 1 `
-                    -ImageUrl $link.imageUrl -Caption $link.label -Link $absoluteUrl `
-                    -AlternativeText $link.image.alt -ImageWidth 400 -ImageHeight 260
-            }
-            else {
-                Add-PnPPageTextPart -Page $Page -Section $order -Column $column -Order 1 `
-                    -Text "<p>📁 <a href='$absoluteUrl'>$($link.label)</a></p>"
-            }
-            $column++
-        }
-
-        $order++
+    $buttonsHtml = foreach ($link in $Links) {
+        $absoluteUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $link.url).AbsoluteUri
+        "<a href='$absoluteUrl' style='background-color:$AccentColor;color:#ffffff;padding:14px 22px;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block;margin:4px 8px 4px 0;'>$($link.label) &raquo;</a>"
     }
 
-    return $order
+    $headingHtml = ''
+    if ($HeadingText) {
+        $headingHtml = "<h2 style='color:$AccentColor;'>$HeadingText</h2>"
+    }
+
+    Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
+        -Text "$headingHtml<div>$($buttonsHtml -join '')</div>"
+}
+
+function Add-PnPTeamContacts {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] $Page,
+        [Parameter(Mandatory)] [int] $Order,
+        [string] $HeadingText = 'Meet the team',
+        [string] $AccentColor
+    )
+
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0
+    Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
+        -Text "<h2 style='color:$AccentColor;'>$HeadingText</h2><p>Add the right people to this card in the page editor.</p>"
+    Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2
 }

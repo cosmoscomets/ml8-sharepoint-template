@@ -7,6 +7,7 @@
     "file": "assets/accounting-audit-hero.jpg",
     "alt": "An accountant using a calculator at a desk"
   },
+  "accentColor": "#5C2D91",
   "page": {
     "name": "Accounting-Audit-Home",
     "title": "Accounting & Audit",
@@ -32,27 +33,15 @@
   "quickLinks": [
     {
       "label": "Accounting documents",
-      "url": "AccountingDocuments",
-      "image": {
-        "file": "assets/accounting-documents.jpg",
-        "alt": "Rows of colorful ring binders organized on office shelves"
-      }
+      "url": "AccountingDocuments"
     },
     {
       "label": "Audit documents",
-      "url": "AuditDocuments",
-      "image": {
-        "file": "assets/audit-documents.jpg",
-        "alt": "A hand marking off items on a checklist"
-      }
+      "url": "AuditDocuments"
     },
     {
       "label": "Policies and procedures",
-      "url": "PoliciesProcedures",
-      "image": {
-        "file": "assets/accounting-policies.jpg",
-        "alt": "A person holding a policy handbook"
-      }
+      "url": "PoliciesProcedures"
     }
   ],
   "importantDates": [

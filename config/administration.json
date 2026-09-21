@@ -7,6 +7,7 @@
     "file": "assets/administration-hero.jpg",
     "alt": "Four coworkers smiling and collaborating around a laptop"
   },
+  "accentColor": "#5C2D91",
   "page": {
     "name": "Administration-Home",
     "title": "Administration",
@@ -32,27 +33,15 @@
   "quickLinks": [
     {
       "label": "General documents",
-      "url": "GeneralDocuments",
-      "image": {
-        "file": "assets/general-documents.jpg",
-        "alt": "A pile of printed papers"
-      }
+      "url": "GeneralDocuments"
     },
     {
       "label": "Policies and procedures",
-      "url": "PoliciesProcedures",
-      "image": {
-        "file": "assets/administration-policies.jpg",
-        "alt": "A gavel and an open book on a table"
-      }
+      "url": "PoliciesProcedures"
     },
     {
       "label": "Templates",
-      "url": "Templates",
-      "image": {
-        "file": "assets/templates.jpg",
-        "alt": "A paper with a diagram layout on a desk"
-      }
+      "url": "Templates"
     }
   ],
   "importantDates": []
