@@ -13,7 +13,7 @@ function Add-PnPHeroBanner {
     $order = 1
     if ($ImageUrl) {
         Add-PnPPageImageWebPart -Page $Page -Section $Section -Column 1 -Order $order `
-            -ImageUrl $ImageUrl -AlternativeText $ImageAlt -ImageWidth 1200 -ImageHeight 400
+            -ImageUrl $ImageUrl -AlternativeText $ImageAlt -ImageWidth 1200 -ImageHeight 400 | Out-Null
         $order++
     }
 
@@ -21,7 +21,7 @@ function Add-PnPHeroBanner {
 <h1 style="color:$AccentColor;">$Title</h1>
 <p>$Description</p>
 "@
-    Add-PnPPageTextPart -Page $Page -Section $Section -Column 1 -Order $order -Text $introHtml
+    Add-PnPPageTextPart -Page $Page -Section $Section -Column 1 -Order $order -Text $introHtml | Out-Null
 }
 
 function Add-PnPCalloutButtons {
@@ -39,7 +39,7 @@ function Add-PnPCalloutButtons {
         return
     }
 
-    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
 
     $siteBaseUrl = "$($SiteUrl.TrimEnd('/'))/"
     $buttonsHtml = foreach ($link in $Links) {
@@ -53,7 +53,7 @@ function Add-PnPCalloutButtons {
     }
 
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
-        -Text "$headingHtml<div>$($buttonsHtml -join '')</div>"
+        -Text "$headingHtml<div>$($buttonsHtml -join '')</div>" | Out-Null
 }
 
 function Add-PnPTeamContacts {
@@ -65,8 +65,8 @@ function Add-PnPTeamContacts {
         [string] $AccentColor
     )
 
-    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
-        -Text "<h2 style='color:$AccentColor;'>$HeadingText</h2><p>Add the right people to this card in the page editor.</p>"
-    Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2
+        -Text "<h2 style='color:$AccentColor;'>$HeadingText</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
+    Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2 | Out-Null
 }

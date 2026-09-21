@@ -100,7 +100,7 @@ try {
     $existingPage = Get-PnPPage -Identity $pageFileName -ErrorAction SilentlyContinue
     if ($existingPage) {
         Write-Host "Replacing managed page: $pageFileName"
-        Remove-PnPPage -Identity $pageFileName -Force
+        Remove-PnPPage -Identity $pageFileName -Force | Out-Null
     }
 
     $page = Add-PnPPage `
@@ -118,8 +118,8 @@ try {
     & $templateScript -Page $page -Configuration $configuration -SiteUrl $SiteUrl `
         -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt -AccentColor $accentColor
 
-    Set-PnPPage -Identity $pageFileName -Publish
-    Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName"
+    Set-PnPPage -Identity $pageFileName -Publish | Out-Null
+    Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName" | Out-Null
 
     Write-Host "Deployment completed. Home page: SitePages/$pageFileName"
 }
