@@ -8,6 +8,8 @@ on:
       - scripts/Deploy-SharePoint.ps1
       - scripts/Test-Configuration.ps1
       - templates/landing-page.ps1
+      - templates/PageComponents.ps1
+      - assets/**
       - .github/workflows/deploy-administration.yml
   workflow_dispatch:
     inputs:

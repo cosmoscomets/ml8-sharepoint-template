@@ -8,6 +8,8 @@ on:
       - scripts/Deploy-SharePoint.ps1
       - scripts/Test-Configuration.ps1
       - templates/document-hub.ps1
+      - templates/PageComponents.ps1
+      - assets/**
       - .github/workflows/deploy-accounting-audit.yml
   workflow_dispatch:
     inputs:
