@@ -70,6 +70,13 @@ try {
 
     $primaryLibraryId = $null
     $primaryLibraryTitle = $null
+
+    $defaultLibrary = Get-PnPList -Identity 'Documents' -ErrorAction SilentlyContinue
+    if ($defaultLibrary) {
+        $primaryLibraryId = $defaultLibrary.Id.ToString()
+        $primaryLibraryTitle = $defaultLibrary.Title
+    }
+
     foreach ($libraryConfiguration in $configuration.libraries) {
         $library = Get-PnPList -Identity $libraryConfiguration.title -ErrorAction SilentlyContinue
         if (-not $library) {
