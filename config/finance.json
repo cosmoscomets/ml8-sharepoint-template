@@ -1,0 +1,56 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Finance",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Finance",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/administration-hero.jpg",
+    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View financial reports",
+    "url": "FinancialReports"
+  },
+  "page": {
+    "name": "Finance-Home",
+    "title": "Finance",
+    "description": "Financial reports, budgets and reporting resources for the Finance team."
+  },
+  "libraries": [
+    {
+      "title": "Financial Reports",
+      "url": "FinancialReports",
+      "description": "Management and statutory financial reports"
+    },
+    {
+      "title": "Budgets and Forecasts",
+      "url": "BudgetsForecasts",
+      "description": "Budgets, forecasts and working papers"
+    },
+    {
+      "title": "Policies and Procedures",
+      "url": "PoliciesProcedures",
+      "description": "Finance policies and procedures"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Financial reports",
+      "url": "FinancialReports"
+    },
+    {
+      "label": "Budgets and forecasts",
+      "url": "BudgetsForecasts"
+    },
+    {
+      "label": "Policies and procedures",
+      "url": "PoliciesProcedures"
+    }
+  ],
+  "importantDates": []
+}

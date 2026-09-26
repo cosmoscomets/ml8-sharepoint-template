@@ -1,0 +1,56 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Corporate Governance",
+  "siteUrl": "https://ml8.sharepoint.com/sites/CorporateGovernance",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View governance policies",
+    "url": "GovernancePolicies"
+  },
+  "page": {
+    "name": "Corporate-Governance-Home",
+    "title": "Corporate Governance",
+    "description": "Governance frameworks, charters and compliance documentation for Moonlight Resources."
+  },
+  "libraries": [
+    {
+      "title": "Governance Policies",
+      "url": "GovernancePolicies",
+      "description": "Approved governance policies"
+    },
+    {
+      "title": "Charters and Terms of Reference",
+      "url": "Charters",
+      "description": "Board and committee charters"
+    },
+    {
+      "title": "Compliance Documents",
+      "url": "ComplianceDocuments",
+      "description": "Regulatory and compliance records"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Governance policies",
+      "url": "GovernancePolicies"
+    },
+    {
+      "label": "Charters and terms of reference",
+      "url": "Charters"
+    },
+    {
+      "label": "Compliance documents",
+      "url": "ComplianceDocuments"
+    }
+  ],
+  "importantDates": []
+}

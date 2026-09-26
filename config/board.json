@@ -1,0 +1,56 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Board",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Board",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View board papers",
+    "url": "BoardPapers"
+  },
+  "page": {
+    "name": "Board-Home",
+    "title": "Board",
+    "description": "Board papers, meeting minutes and governance documents for Moonlight Resources directors."
+  },
+  "libraries": [
+    {
+      "title": "Board Papers",
+      "url": "BoardPapers",
+      "description": "Board meeting papers and agendas"
+    },
+    {
+      "title": "Meeting Minutes",
+      "url": "MeetingMinutes",
+      "description": "Approved board meeting minutes"
+    },
+    {
+      "title": "Policies and Charters",
+      "url": "PoliciesCharters",
+      "description": "Board charters and governance policies"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Board papers",
+      "url": "BoardPapers"
+    },
+    {
+      "label": "Meeting minutes",
+      "url": "MeetingMinutes"
+    },
+    {
+      "label": "Policies and charters",
+      "url": "PoliciesCharters"
+    }
+  ],
+  "importantDates": []
+}

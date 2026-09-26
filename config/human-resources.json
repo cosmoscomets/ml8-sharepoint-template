@@ -1,0 +1,43 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Human Resources",
+  "siteUrl": "https://ml8.sharepoint.com/sites/HumanResources",
+  "template": "landing-page",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "page": {
+    "name": "Human-Resources-Home",
+    "title": "Human Resources",
+    "description": "HR resources, policies and support for the Moonlight Resources team."
+  },
+  "libraries": [
+    {
+      "title": "HR Documents",
+      "url": "HRDocuments",
+      "description": "General HR documents and forms"
+    },
+    {
+      "title": "Policies and Procedures",
+      "url": "PoliciesProcedures",
+      "description": "HR policies and procedures"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "HR documents",
+      "url": "HRDocuments"
+    },
+    {
+      "label": "Policies and procedures",
+      "url": "PoliciesProcedures"
+    }
+  ],
+  "importantDates": []
+}

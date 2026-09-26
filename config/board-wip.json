@@ -1,0 +1,47 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Board – WIP",
+  "siteUrl": "https://ml8.sharepoint.com/sites/boardwip",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/administration-hero.jpg",
+    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View draft papers",
+    "url": "DraftPapers"
+  },
+  "page": {
+    "name": "Board-WIP-Home",
+    "title": "Board – WIP",
+    "description": "Work-in-progress board papers and drafts ahead of finalisation."
+  },
+  "libraries": [
+    {
+      "title": "Draft Papers",
+      "url": "DraftPapers",
+      "description": "Board papers in draft"
+    },
+    {
+      "title": "Working Documents",
+      "url": "WorkingDocuments",
+      "description": "Supporting working documents"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Draft papers",
+      "url": "DraftPapers"
+    },
+    {
+      "label": "Working documents",
+      "url": "WorkingDocuments"
+    }
+  ],
+  "importantDates": []
+}

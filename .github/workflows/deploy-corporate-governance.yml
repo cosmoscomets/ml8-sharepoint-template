@@ -1,0 +1,73 @@
+name: Deploy Corporate Governance site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - config/corporate-governance.json
+      - scripts/Deploy-SharePoint.ps1
+      - scripts/Test-Configuration.ps1
+      - templates/document-hub.ps1
+      - templates/PageComponents.ps1
+      - assets/**
+      - .github/workflows/deploy-corporate-governance.yml
+  workflow_dispatch:
+    inputs:
+      confirmation:
+        description: Type DEPLOY to confirm the SharePoint change
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sharepoint-production-corporate-governance
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'push' || inputs.confirmation == 'DEPLOY' }}
+    runs-on: ubuntu-latest
+    environment: sharepoint-production
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        shell: pwsh
+        run: Install-Module PnP.PowerShell -Scope CurrentUser -Force
+
+      - name: Validate configuration
+        shell: pwsh
+        run: >-
+          ./scripts/Test-Configuration.ps1
+          -ConfigurationPath ./config/corporate-governance.json
+
+      - name: Resolve site URL
+        id: site
+        shell: pwsh
+        run: |
+          $configuration = Get-Content -LiteralPath './config/corporate-governance.json' -Raw | ConvertFrom-Json
+          "url=$($configuration.siteUrl)" >> $env:GITHUB_OUTPUT
+
+      - name: Deploy template
+        shell: pwsh
+        env:
+          SITE_URL: ${{ steps.site.outputs.url }}
+          TENANT: ${{ vars.SHAREPOINT_TENANT }}
+          CLIENT_ID: ${{ secrets.ENTRA_CLIENT_ID }}
+          CERTIFICATE_BASE64: ${{ secrets.PNP_CERTIFICATE_BASE64 }}
+          CERTIFICATE_PASSWORD: ${{ secrets.PNP_CERTIFICATE_PASSWORD }}
+        run: |
+          $secureCertificatePassword = ConvertTo-SecureString `
+            $env:CERTIFICATE_PASSWORD -AsPlainText -Force
+
+          ./scripts/Deploy-SharePoint.ps1 `
+            -ConfigurationPath ./config/corporate-governance.json `
+            -SiteUrl $env:SITE_URL `
+            -Tenant $env:TENANT `
+            -ClientId $env:CLIENT_ID `
+            -CertificateBase64 $env:CERTIFICATE_BASE64 `
+            -CertificatePassword $secureCertificatePassword

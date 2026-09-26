@@ -1,0 +1,56 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Legal",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Legal",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View contracts",
+    "url": "Contracts"
+  },
+  "page": {
+    "name": "Legal-Home",
+    "title": "Legal",
+    "description": "Contracts, compliance records and legal documentation."
+  },
+  "libraries": [
+    {
+      "title": "Contracts",
+      "url": "Contracts",
+      "description": "Executed contracts and agreements"
+    },
+    {
+      "title": "Compliance Documents",
+      "url": "ComplianceDocuments",
+      "description": "Regulatory and compliance records"
+    },
+    {
+      "title": "Legal Correspondence",
+      "url": "LegalCorrespondence",
+      "description": "Legal correspondence and advice"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Contracts",
+      "url": "Contracts"
+    },
+    {
+      "label": "Compliance documents",
+      "url": "ComplianceDocuments"
+    },
+    {
+      "label": "Legal correspondence",
+      "url": "LegalCorrespondence"
+    }
+  ],
+  "importantDates": []
+}

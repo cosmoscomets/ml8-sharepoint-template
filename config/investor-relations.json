@@ -1,0 +1,56 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Investor Relations",
+  "siteUrl": "https://ml8.sharepoint.com/sites/IR",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/administration-hero.jpg",
+    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View ASX announcements",
+    "url": "ASXAnnouncements"
+  },
+  "page": {
+    "name": "Investor-Relations-Home",
+    "title": "Investor Relations",
+    "description": "ASX announcements, investor presentations and annual reports."
+  },
+  "libraries": [
+    {
+      "title": "ASX Announcements",
+      "url": "ASXAnnouncements",
+      "description": "Market announcements and disclosures"
+    },
+    {
+      "title": "Investor Presentations",
+      "url": "InvestorPresentations",
+      "description": "Investor and analyst presentations"
+    },
+    {
+      "title": "Annual Reports",
+      "url": "AnnualReports",
+      "description": "Annual and half-year reports"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "ASX announcements",
+      "url": "ASXAnnouncements"
+    },
+    {
+      "label": "Investor presentations",
+      "url": "InvestorPresentations"
+    },
+    {
+      "label": "Annual reports",
+      "url": "AnnualReports"
+    }
+  ],
+  "importantDates": []
+}

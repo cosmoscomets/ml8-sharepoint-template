@@ -1,0 +1,47 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Subsidiaries",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Subsidiaries",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/accounting-audit-hero.jpg",
+    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View subsidiary records",
+    "url": "SubsidiaryRecords"
+  },
+  "page": {
+    "name": "Subsidiaries-Home",
+    "title": "Subsidiaries",
+    "description": "Records and documentation for Moonlight Resources' subsidiary entities."
+  },
+  "libraries": [
+    {
+      "title": "Subsidiary Records",
+      "url": "SubsidiaryRecords",
+      "description": "Corporate records for subsidiary entities"
+    },
+    {
+      "title": "Corporate Documents",
+      "url": "CorporateDocuments",
+      "description": "Incorporation and statutory documents"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Subsidiary records",
+      "url": "SubsidiaryRecords"
+    },
+    {
+      "label": "Corporate documents",
+      "url": "CorporateDocuments"
+    }
+  ],
+  "importantDates": []
+}

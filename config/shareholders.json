@@ -1,0 +1,47 @@
+{
+  "$schema": "./site.schema.json",
+  "siteTitle": "Shareholders",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Shareholders",
+  "template": "document-hub",
+  "heroImage": {
+    "file": "assets/administration-hero.jpg",
+    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+  },
+  "logo": {
+    "file": "assets/moonlight-resources-logo.png",
+    "alt": "Moonlight Resources"
+  },
+  "accentColor": "#153E64",
+  "heroCta": {
+    "label": "View shareholder communications",
+    "url": "ShareholderCommunications"
+  },
+  "page": {
+    "name": "Shareholders-Home",
+    "title": "Shareholders",
+    "description": "Shareholder communications, forms and registry information."
+  },
+  "libraries": [
+    {
+      "title": "Shareholder Communications",
+      "url": "ShareholderCommunications",
+      "description": "Notices and communications to shareholders"
+    },
+    {
+      "title": "Forms",
+      "url": "Forms",
+      "description": "Shareholder forms and templates"
+    }
+  ],
+  "quickLinks": [
+    {
+      "label": "Shareholder communications",
+      "url": "ShareholderCommunications"
+    },
+    {
+      "label": "Forms",
+      "url": "Forms"
+    }
+  ],
+  "importantDates": []
+}
