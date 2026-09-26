@@ -20,7 +20,7 @@ if ($Configuration.heroCta) {
     $heroLinkUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $Configuration.heroCta.url).AbsoluteUri
 }
 
-Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order 1 -ZoneEmphasis 2 | Out-Null
+Add-PnPPageSection -Page $Page -SectionTemplate OneColumnVerticalSection -Order 1 -ZoneEmphasis 2 -VerticalZoneEmphasis 1 | Out-Null
 Add-PnPHeroBanner -Page $Page -Section 1 `
     -Title $Configuration.page.title `
     -Description $Configuration.page.description `
@@ -55,8 +55,4 @@ Add-PnPPageTextPart -Page $Page -Section $nextOrder -Column 1 -Order 1 `
 Add-PnPPageWebPart -Page $Page -DefaultWebPartType Events -Section $nextOrder -Column 1 -Order 2 | Out-Null
 $nextOrder++
 
-Add-PnPTeamContacts -Page $Page -Order $nextOrder -AccentColor $AccentColor
-$nextOrder++
-
-Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $nextOrder -ZoneEmphasis 1 | Out-Null
-Add-PnPPageWebPart -Page $Page -DefaultWebPartType SiteActivity -Section $nextOrder -Column 1 -Order 1 | Out-Null
+Add-PnPPageSidebar -Page $Page -AccentColor $AccentColor

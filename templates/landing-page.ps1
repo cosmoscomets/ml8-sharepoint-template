@@ -12,7 +12,7 @@ param(
 
 . "$PSScriptRoot/PageComponents.ps1"
 
-Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order 1 -ZoneEmphasis 2 | Out-Null
+Add-PnPPageSection -Page $Page -SectionTemplate OneColumnVerticalSection -Order 1 -ZoneEmphasis 2 -VerticalZoneEmphasis 1 | Out-Null
 Add-PnPHeroBanner -Page $Page -Section 1 `
     -Title $Configuration.page.title `
     -Description $Configuration.page.description `
@@ -29,8 +29,7 @@ Add-PnPDocumentsSection -Page $Page -Order $nextOrder -ListId $PrimaryLibraryId 
     -HeadingText $PrimaryLibraryTitle -AccentColor $AccentColor
 $nextOrder++
 
-Add-PnPTeamContacts -Page $Page -Order $nextOrder -AccentColor $AccentColor
-$nextOrder++
+Add-PnPPageSidebar -Page $Page -AccentColor $AccentColor
 
 Add-PnPPageSection -Page $Page -SectionTemplate TwoColumnLeft -Order $nextOrder -ZoneEmphasis 3 | Out-Null
 Add-PnPPageWebPart -Page $Page -DefaultWebPartType News -Section $nextOrder -Column 1 -Order 1 | Out-Null

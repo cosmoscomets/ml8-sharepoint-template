@@ -96,19 +96,20 @@ function Add-PnPCalloutButtons {
         -Text "$headingHtml<div>$($buttonsHtml -join '')</div>" | Out-Null
 }
 
-function Add-PnPTeamContacts {
+function Add-PnPPageSidebar {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)] $Page,
-        [Parameter(Mandatory)] [int] $Order,
-        [string] $HeadingText = 'Meet the team',
         [string] $AccentColor
     )
 
-    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
-    Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
-        -Text "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
-    Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2 | Out-Null
+    Add-PnPPageTextPart -Page $Page -Section 1 -Column 2 -Order 1 `
+        -Text "<h2 style='color:$AccentColor;'>MEET THE TEAM</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
+    Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section 1 -Column 2 -Order 2 | Out-Null
+
+    Add-PnPPageTextPart -Page $Page -Section 1 -Column 2 -Order 3 `
+        -Text "<h2 style='color:$AccentColor;'>RECENT ACTIVITY</h2>" | Out-Null
+    Add-PnPPageWebPart -Page $Page -DefaultWebPartType SiteActivity -Section 1 -Column 2 -Order 4 | Out-Null
 }
 
 function Add-PnPDocumentsSection {
