@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/Legal",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "file": "assets/legal-hero.jpg",
+    "alt": "A bronze Lady Justice statue holding scales and a sword"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Legal-Home",
     "title": "Legal",
-    "description": "Contracts, compliance records and legal documentation."
+    "description": "The Legal site holds Moonlight Resources' contractual and regulatory record. Contracts covers executed agreements (suppliers, tenements, joint ventures), Compliance Documents tracks obligations under the Corporations Act, mining legislation and other regulatory regimes, and Legal Correspondence holds formal legal advice and correspondence with external counsel. Treat this as the authoritative source before assuming what a contract or obligation actually says."
   },
   "libraries": [
     {

@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/CorporateGovernance",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "file": "assets/corporate-governance-hero.jpg",
+    "alt": "A close-up of a small brass balance scale, evenly weighted"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Corporate-Governance-Home",
     "title": "Corporate Governance",
-    "description": "Governance frameworks, charters and compliance documentation for Moonlight Resources."
+    "description": "Corporate Governance is where Moonlight Resources' overarching governance framework lives, separate from the Board's own meeting-specific papers. Governance Policies covers company-wide governance policies (e.g. continuous disclosure, risk management), Charters and Terms of Reference holds the constitutions of the board and its committees, and Compliance Documents tracks obligations under the ASX Listing Rules and the Corporations Act. This is the reference point for how the company is governed, not just what the board decided."
   },
   "libraries": [
     {

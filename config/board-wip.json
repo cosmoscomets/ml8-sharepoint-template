@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/boardwip",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/administration-hero.jpg",
-    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+    "file": "assets/board-wip-hero.jpg",
+    "alt": "A hand signing a document with a pen, close up in black and white"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Board-WIP-Home",
     "title": "Board – WIP",
-    "description": "Work-in-progress board papers and drafts ahead of finalisation."
+    "description": "Board – WIP is the working space for board material that isn't ready for the boardroom yet. Draft Papers holds board papers still being written or reviewed, and Working Documents covers the supporting analysis, data and correspondence behind them. Once a paper is finalised and approved, it moves across to the main Board site — nothing here should be treated as the approved record."
   },
   "libraries": [
     {

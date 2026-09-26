@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/HumanResources",
   "template": "landing-page",
   "heroImage": {
-    "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "file": "assets/human-resources-hero.jpg",
+    "alt": "A diverse team in a meeting room, with a facilitator writing on a whiteboard"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -15,7 +15,7 @@
   "page": {
     "name": "Human-Resources-Home",
     "title": "Human Resources",
-    "description": "HR resources, policies and support for the Moonlight Resources team."
+    "description": "The Human Resources site is where the Moonlight Resources team goes for people-related support. HR Documents covers forms, templates and general people paperwork, and Policies and Procedures sets out what's expected of employees and managers alike — from leave and conduct through to workplace health and safety. If you have a question about how something people-related is meant to work, start here."
   },
   "libraries": [
     {

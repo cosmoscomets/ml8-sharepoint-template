@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/Shareholders",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/administration-hero.jpg",
-    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+    "file": "assets/shareholders-hero.jpg",
+    "alt": "Two people in business attire shaking hands"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Shareholders-Home",
     "title": "Shareholders",
-    "description": "Shareholder communications, forms and registry information."
+    "description": "The Shareholders site supports the team handling day-to-day shareholder administration for Moonlight Resources. Shareholder Communications holds notices, letters and other correspondence sent to shareholders, and Forms covers the registry-related paperwork shareholders are asked to complete (e.g. change of address, dividend instructions). For public market disclosures, see the Investor Relations site instead — this one is about servicing existing shareholders directly."
   },
   "libraries": [
     {

@@ -5,7 +5,7 @@
   "template": "document-hub",
   "heroImage": {
     "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "alt": "Tax and financial paperwork laid out on a desk with a pen"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Accounting-Audit-Home",
     "title": "Accounting & Audit",
-    "description": "Your one-stop hub for financial records, audit trails and approved policies — built to keep reporting accurate and audit-ready."
+    "description": "The Accounting & Audit site is the record of truth for Moonlight Resources' financial reporting. Use Accounting Documents for day-to-day ledgers and working papers, Audit Documents for internal and external audit evidence, and Policies and Procedures for the finance controls everyone is expected to follow. Keep this site current — it's what auditors and the finance team rely on at year-end."
   },
   "libraries": [
     {

@@ -5,7 +5,7 @@
   "template": "landing-page",
   "heroImage": {
     "file": "assets/administration-hero.jpg",
-    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+    "alt": "A tidy desk with a keyboard, blank notepad and pen"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -15,7 +15,7 @@
   "page": {
     "name": "Administration-Home",
     "title": "Administration",
-    "description": "Everything the team needs to stay organised — shared documents, house policies and ready-to-use templates, all in one place."
+    "description": "The Administration site is the shared home base for day-to-day operations at Moonlight Resources. General Documents holds the paperwork that doesn't have a more specific home, Policies and Procedures is the source of truth for how things are done, and Templates gives you a starting point instead of formatting from scratch. If you're not sure where something belongs company-wide, it probably starts here."
   },
   "libraries": [
     {

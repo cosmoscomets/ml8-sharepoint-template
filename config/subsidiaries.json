@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/Subsidiaries",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "file": "assets/subsidiaries-hero.jpg",
+    "alt": "A modern glass and steel office building facade"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Subsidiaries-Home",
     "title": "Subsidiaries",
-    "description": "Records and documentation for Moonlight Resources' subsidiary entities."
+    "description": "The Subsidiaries site is the corporate record for Moonlight Resources' group structure. Subsidiary Records holds entity-level information for each subsidiary (directors, shareholdings, key contacts), and Corporate Documents covers incorporation certificates, constitutions and other statutory filings. This is the reference point for understanding how the corporate group fits together, not the operational records of the subsidiaries themselves."
   },
   "libraries": [
     {

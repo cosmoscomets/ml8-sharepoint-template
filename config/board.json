@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/Board",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/accounting-audit-hero.jpg",
-    "alt": "Red rock ranges lit by golden hour light across an arid landscape"
+    "file": "assets/board-hero.jpg",
+    "alt": "A boardroom table with chairs overlooking a city skyline"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Board-Home",
     "title": "Board",
-    "description": "Board papers, meeting minutes and governance documents for Moonlight Resources directors."
+    "description": "The Board site holds the finalised record for the Moonlight Resources board of directors. Board Papers contains the agendas and papers circulated ahead of each meeting, Meeting Minutes holds the approved record once a meeting has concluded, and Policies and Charters covers the board's own governing documents (charters, terms of reference, delegations of authority). Only finalised, board-approved material belongs here — drafts and works in progress live on the Board – WIP site instead."
   },
   "libraries": [
     {

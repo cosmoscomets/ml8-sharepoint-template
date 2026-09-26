@@ -4,8 +4,8 @@
   "siteUrl": "https://ml8.sharepoint.com/sites/Finance",
   "template": "document-hub",
   "heroImage": {
-    "file": "assets/administration-hero.jpg",
-    "alt": "Silhouetted mountain ranges under a golden sunset sky"
+    "file": "assets/finance-hero.jpg",
+    "alt": "A financial chart with multiple colored trend lines on a monitor"
   },
   "logo": {
     "file": "assets/moonlight-resources-logo.png",
@@ -19,7 +19,7 @@
   "page": {
     "name": "Finance-Home",
     "title": "Finance",
-    "description": "Financial reports, budgets and reporting resources for the Finance team."
+    "description": "The Finance site supports the day-to-day work of running Moonlight Resources' finance function. Financial Reports holds management and statutory reporting, Budgets and Forecasts covers the numbers the business plans against, and Policies and Procedures sets out the finance controls the team operates under. This complements Accounting & Audit — Finance is where the numbers are prepared and analysed; Accounting & Audit is where the audited record sits."
   },
   "libraries": [
     {
