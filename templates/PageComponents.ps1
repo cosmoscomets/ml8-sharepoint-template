@@ -129,7 +129,7 @@ function Add-PnPDocumentsSection {
         $HeadingText = 'Documents'
     }
 
-    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 1 | Out-Null
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
         -Text "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2>" | Out-Null
     Add-PnPPageWebPart -Page $Page -DefaultWebPartType List -Section $Order -Column 1 -Order 2 `
