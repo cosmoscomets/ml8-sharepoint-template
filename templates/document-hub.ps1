@@ -5,9 +5,7 @@ param(
     [Parameter(Mandatory)] [string] $SiteUrl,
     [string] $HeroImageUrl,
     [string] $HeroImageAlt,
-    [string] $AccentColor,
-    [string] $LogoUrl,
-    [string] $LogoAlt
+    [string] $AccentColor
 )
 
 . "$PSScriptRoot/PageComponents.ps1"
@@ -28,9 +26,7 @@ Add-PnPHeroBanner -Page $Page -Section 1 `
     -ImageAlt $HeroImageAlt `
     -LinkText $heroLinkText `
     -LinkUrl $heroLinkUrl `
-    -AccentColor $AccentColor `
-    -LogoUrl $LogoUrl `
-    -LogoAlt $LogoAlt
+    -AccentColor $AccentColor
 
 $nextOrder = 2
 Add-PnPIconLinkGrid -Page $Page -Links $Configuration.quickLinks -SiteUrl $SiteUrl `

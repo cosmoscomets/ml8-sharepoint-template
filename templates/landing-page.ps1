@@ -5,9 +5,7 @@ param(
     [Parameter(Mandatory)] [string] $SiteUrl,
     [string] $HeroImageUrl,
     [string] $HeroImageAlt,
-    [string] $AccentColor,
-    [string] $LogoUrl,
-    [string] $LogoAlt
+    [string] $AccentColor
 )
 
 . "$PSScriptRoot/PageComponents.ps1"
@@ -18,9 +16,7 @@ Add-PnPHeroBanner -Page $Page -Section 1 `
     -Description $Configuration.page.description `
     -ImageUrl $HeroImageUrl `
     -ImageAlt $HeroImageAlt `
-    -AccentColor $AccentColor `
-    -LogoUrl $LogoUrl `
-    -LogoAlt $LogoAlt
+    -AccentColor $AccentColor
 
 $nextOrder = 2
 Add-PnPCalloutButtons -Page $Page -Links $Configuration.quickLinks -SiteUrl $SiteUrl `

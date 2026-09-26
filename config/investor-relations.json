@@ -7,10 +7,6 @@
     "file": "assets/investor-relations-hero.jpg",
     "alt": "A digital stock ticker display showing a share price and an upward trend line"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View ASX announcements",

@@ -7,10 +7,6 @@
     "file": "assets/board-wip-hero.jpg",
     "alt": "A hand signing a document with a pen, close up in black and white"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View draft papers",

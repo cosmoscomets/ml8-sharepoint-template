@@ -18,15 +18,6 @@
       },
       "additionalProperties": false
     },
-    "logo": {
-      "type": "object",
-      "required": ["file", "alt"],
-      "properties": {
-        "file": { "type": "string", "minLength": 1 },
-        "alt": { "type": "string", "minLength": 1 }
-      },
-      "additionalProperties": false
-    },
     "accentColor": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
     "heroCta": {
       "type": "object",

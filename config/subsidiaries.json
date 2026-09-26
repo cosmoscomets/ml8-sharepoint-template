@@ -7,10 +7,6 @@
     "file": "assets/subsidiaries-hero.jpg",
     "alt": "A modern glass and steel office building facade"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View subsidiary records",

@@ -7,10 +7,6 @@
     "file": "assets/finance-hero.jpg",
     "alt": "A financial chart with multiple colored trend lines on a monitor"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View financial reports",

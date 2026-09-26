@@ -84,7 +84,6 @@ try {
     }
 
     Add-PnPOptionalProperty -InputObject $configuration -Name 'heroImage'
-    Add-PnPOptionalProperty -InputObject $configuration -Name 'logo'
     Add-PnPOptionalProperty -InputObject $configuration -Name 'accentColor'
     Add-PnPOptionalProperty -InputObject $configuration -Name 'heroCta'
 
@@ -93,13 +92,6 @@ try {
     if ($configuration.heroImage) {
         $heroImageUrl = Publish-PnPImageAsset -RelativePath $configuration.heroImage.file
         $heroImageAlt = $configuration.heroImage.alt
-    }
-
-    $logoUrl = $null
-    $logoAlt = $null
-    if ($configuration.logo) {
-        $logoUrl = Publish-PnPImageAsset -RelativePath $configuration.logo.file
-        $logoAlt = $configuration.logo.alt
     }
 
     $accentColor = if ($configuration.accentColor) { $configuration.accentColor } else { '#4D6299' }
@@ -125,8 +117,7 @@ try {
 
     Write-Host "Applying page template: $($configuration.template)"
     & $templateScript -Page $page -Configuration $configuration -SiteUrl $SiteUrl `
-        -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt -AccentColor $accentColor `
-        -LogoUrl $logoUrl -LogoAlt $logoAlt
+        -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt -AccentColor $accentColor
 
     Set-PnPPage -Identity $pageFileName -Publish | Out-Null
     Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName" | Out-Null

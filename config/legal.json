@@ -7,10 +7,6 @@
     "file": "assets/legal-hero.jpg",
     "alt": "A bronze Lady Justice statue holding scales and a sword"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View contracts",

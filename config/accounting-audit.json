@@ -7,10 +7,6 @@
     "file": "assets/accounting-audit-hero.jpg",
     "alt": "Tax and financial paperwork laid out on a desk with a pen"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View accounting documents",

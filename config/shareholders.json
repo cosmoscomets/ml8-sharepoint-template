@@ -7,10 +7,6 @@
     "file": "assets/shareholders-hero.jpg",
     "alt": "Two people in business attire shaking hands"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View shareholder communications",

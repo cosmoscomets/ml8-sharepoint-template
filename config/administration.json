@@ -7,10 +7,6 @@
     "file": "assets/administration-hero.jpg",
     "alt": "A tidy desk with a keyboard, blank notepad and pen"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "page": {
     "name": "Administration-Home",

@@ -7,10 +7,6 @@
     "file": "assets/board-hero.jpg",
     "alt": "A boardroom table with chairs overlooking a city skyline"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "heroCta": {
     "label": "View board papers",

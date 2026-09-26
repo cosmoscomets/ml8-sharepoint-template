@@ -7,10 +7,6 @@
     "file": "assets/human-resources-hero.jpg",
     "alt": "A diverse team in a meeting room, with a facilitator writing on a whiteboard"
   },
-  "logo": {
-    "file": "assets/moonlight-resources-logo.png",
-    "alt": "Moonlight Resources"
-  },
   "accentColor": "#4D6299",
   "page": {
     "name": "Human-Resources-Home",
