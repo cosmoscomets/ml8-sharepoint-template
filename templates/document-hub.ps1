@@ -5,7 +5,9 @@ param(
     [Parameter(Mandatory)] [string] $SiteUrl,
     [string] $HeroImageUrl,
     [string] $HeroImageAlt,
-    [string] $AccentColor
+    [string] $AccentColor,
+    [string] $PrimaryLibraryId,
+    [string] $PrimaryLibraryTitle
 )
 
 . "$PSScriptRoot/PageComponents.ps1"
@@ -31,6 +33,10 @@ Add-PnPHeroBanner -Page $Page -Section 1 `
 $nextOrder = 2
 Add-PnPIconLinkGrid -Page $Page -Links $Configuration.quickLinks -SiteUrl $SiteUrl `
     -Order $nextOrder -HeadingText 'Quick links' -AccentColor $AccentColor
+$nextOrder++
+
+Add-PnPDocumentsSection -Page $Page -Order $nextOrder -ListId $PrimaryLibraryId `
+    -HeadingText $PrimaryLibraryTitle -AccentColor $AccentColor
 $nextOrder++
 
 if ($Configuration.importantDates.Count -gt 0) {

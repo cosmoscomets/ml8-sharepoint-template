@@ -110,3 +110,28 @@ function Add-PnPTeamContacts {
         -Text "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
     Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2 | Out-Null
 }
+
+function Add-PnPDocumentsSection {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] $Page,
+        [Parameter(Mandatory)] [int] $Order,
+        [string] $ListId,
+        [string] $HeadingText,
+        [string] $AccentColor
+    )
+
+    if (-not $ListId) {
+        return
+    }
+
+    if (-not $HeadingText) {
+        $HeadingText = 'Documents'
+    }
+
+    Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
+    Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
+        -Text "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2>" | Out-Null
+    Add-PnPPageWebPart -Page $Page -DefaultWebPartType List -Section $Order -Column 1 -Order 2 `
+        -WebPartProperties @{ isDocumentLibrary = 'true'; selectedListId = $ListId } | Out-Null
+}

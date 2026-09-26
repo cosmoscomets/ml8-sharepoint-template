@@ -68,18 +68,25 @@ try {
 
     $script:webServerRelativeUrl = (Get-PnPWeb).ServerRelativeUrl.TrimEnd('/')
 
+    $primaryLibraryId = $null
+    $primaryLibraryTitle = $null
     foreach ($libraryConfiguration in $configuration.libraries) {
         $library = Get-PnPList -Identity $libraryConfiguration.title -ErrorAction SilentlyContinue
         if (-not $library) {
             Write-Host "Creating library: $($libraryConfiguration.title)"
-            New-PnPList `
+            $library = New-PnPList `
                 -Title $libraryConfiguration.title `
                 -Url $libraryConfiguration.url `
                 -Template DocumentLibrary `
-                -OnQuickLaunch | Out-Null
+                -OnQuickLaunch
         }
         else {
             Write-Host "Library already exists: $($libraryConfiguration.title)"
+        }
+
+        if (-not $primaryLibraryId) {
+            $primaryLibraryId = $library.Id.ToString()
+            $primaryLibraryTitle = $libraryConfiguration.title
         }
     }
 
@@ -117,7 +124,8 @@ try {
 
     Write-Host "Applying page template: $($configuration.template)"
     & $templateScript -Page $page -Configuration $configuration -SiteUrl $SiteUrl `
-        -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt -AccentColor $accentColor
+        -HeroImageUrl $heroImageUrl -HeroImageAlt $heroImageAlt -AccentColor $accentColor `
+        -PrimaryLibraryId $primaryLibraryId -PrimaryLibraryTitle $primaryLibraryTitle
 
     Set-PnPPage -Identity $pageFileName -Publish | Out-Null
     Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName" | Out-Null
