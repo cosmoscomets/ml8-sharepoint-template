@@ -1,7 +1,7 @@
 {
   "$schema": "./site.schema.json",
   "siteTitle": "Administration",
-  "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/ADMINISTRATION",
+  "siteUrl": "https://ml8.sharepoint.com/sites/Administrator",
   "template": "landing-page",
   "heroImage": {
     "file": "assets/administration-hero.jpg",

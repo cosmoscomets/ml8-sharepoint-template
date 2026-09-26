@@ -1,7 +1,7 @@
 {
   "$schema": "./site.schema.json",
   "siteTitle": "Accounting & Audit",
-  "siteUrl": "https://brightlodestargroup.sharepoint.com/sites/AccountingAudit-Test",
+  "siteUrl": "https://ml8.sharepoint.com/sites/accounting",
   "template": "document-hub",
   "heroImage": {
     "file": "assets/accounting-audit-hero.jpg",
