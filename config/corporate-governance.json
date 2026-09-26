@@ -11,7 +11,7 @@
     "file": "assets/moonlight-resources-logo.png",
     "alt": "Moonlight Resources"
   },
-  "accentColor": "#153E64",
+  "accentColor": "#4D6299",
   "heroCta": {
     "label": "View governance policies",
     "url": "GovernancePolicies"

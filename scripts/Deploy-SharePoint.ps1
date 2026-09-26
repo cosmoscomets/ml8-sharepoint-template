@@ -102,7 +102,7 @@ try {
         $logoAlt = $configuration.logo.alt
     }
 
-    $accentColor = if ($configuration.accentColor) { $configuration.accentColor } else { '#153E64' }
+    $accentColor = if ($configuration.accentColor) { $configuration.accentColor } else { '#4D6299' }
 
     $pageName = $configuration.page.name
     $pageFileName = "$pageName.aspx"
