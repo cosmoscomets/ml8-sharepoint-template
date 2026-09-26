@@ -15,7 +15,7 @@
   "page": {
     "name": "Corporate-Governance-Home",
     "title": "Corporate Governance",
-    "description": "Corporate Governance is where Moonlight Resources' overarching governance framework lives, separate from the Board's own meeting-specific papers. Governance Policies covers company-wide governance policies (e.g. continuous disclosure, risk management), Charters and Terms of Reference holds the constitutions of the board and its committees, and Compliance Documents tracks obligations under the ASX Listing Rules and the Corporations Act. This is the reference point for how the company is governed, not just what the board decided."
+    "description": "Corporate Governance is where Moonlight Resources' overarching governance framework lives, separate from the Board's own meeting-specific papers. As an ASX-listed company (ASX: ML8), Moonlight Resources operates under the ASX Listing Rules and the Corporations Act. Governance Policies covers company-wide governance policies (e.g. continuous disclosure, risk management), Charters and Terms of Reference holds the constitutions of the board and its committees, and Compliance Documents tracks those regulatory obligations directly. This is the reference point for how the company is governed, not just what the board decided."
   },
   "libraries": [
     {
