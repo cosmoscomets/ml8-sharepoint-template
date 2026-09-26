@@ -12,7 +12,7 @@ param(
 
 Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order 1 -ZoneEmphasis 2 | Out-Null
 Add-PnPHeroBanner -Page $Page -Section 1 `
-    -Title "🏢 $($Configuration.page.title)" `
+    -Title $Configuration.page.title `
     -Description $Configuration.page.description `
     -ImageUrl $HeroImageUrl `
     -ImageAlt $HeroImageAlt `
@@ -20,7 +20,7 @@ Add-PnPHeroBanner -Page $Page -Section 1 `
 
 $nextOrder = 2
 Add-PnPCalloutButtons -Page $Page -Links $Configuration.quickLinks -SiteUrl $SiteUrl `
-    -Order $nextOrder -HeadingText '🔗 Quick links' -AccentColor $AccentColor
+    -Order $nextOrder -HeadingText 'Quick links' -AccentColor $AccentColor
 $nextOrder++
 
 Add-PnPTeamContacts -Page $Page -Order $nextOrder -AccentColor $AccentColor

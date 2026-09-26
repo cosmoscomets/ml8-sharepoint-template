@@ -25,7 +25,7 @@ function Add-PnPHeroBanner {
     }
 
     $introHtml = @"
-<h1 style="color:$AccentColor;">$Title</h1>
+<h1 style="color:$AccentColor;">$($Title.ToUpper())</h1>
 <p>$Description</p>
 $linkHtml
 "@
@@ -52,12 +52,12 @@ function Add-PnPIconLinkGrid {
     $siteBaseUrl = "$($SiteUrl.TrimEnd('/'))/"
     $tilesHtml = foreach ($link in $Links) {
         $absoluteUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $link.url).AbsoluteUri
-        "<a href='$absoluteUrl' style='background-color:#f3f2f1;color:#201f1e;padding:12px 20px;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block;margin:4px 8px 4px 0;'>📁 $($link.label)</a>"
+        "<a href='$absoluteUrl' style='background-color:#f3f2f1;color:#201f1e;padding:12px 20px;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block;margin:4px 8px 4px 0;'>$($link.label.ToUpper())</a>"
     }
 
     $headingHtml = ''
     if ($HeadingText) {
-        $headingHtml = "<h2 style='color:$AccentColor;'>$HeadingText</h2>"
+        $headingHtml = "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2>"
     }
 
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
@@ -84,12 +84,12 @@ function Add-PnPCalloutButtons {
     $siteBaseUrl = "$($SiteUrl.TrimEnd('/'))/"
     $buttonsHtml = foreach ($link in $Links) {
         $absoluteUrl = [System.Uri]::new([System.Uri]$siteBaseUrl, $link.url).AbsoluteUri
-        "<a href='$absoluteUrl' style='background-color:$AccentColor;color:#ffffff;padding:14px 22px;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block;margin:4px 8px 4px 0;'>$($link.label) &raquo;</a>"
+        "<a href='$absoluteUrl' style='background-color:$AccentColor;color:#ffffff;padding:14px 22px;border-radius:4px;text-decoration:none;font-weight:600;display:inline-block;margin:4px 8px 4px 0;'>$($link.label.ToUpper()) &raquo;</a>"
     }
 
     $headingHtml = ''
     if ($HeadingText) {
-        $headingHtml = "<h2 style='color:$AccentColor;'>$HeadingText</h2>"
+        $headingHtml = "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2>"
     }
 
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
@@ -107,6 +107,6 @@ function Add-PnPTeamContacts {
 
     Add-PnPPageSection -Page $Page -SectionTemplate OneColumn -Order $Order -ZoneEmphasis 0 | Out-Null
     Add-PnPPageTextPart -Page $Page -Section $Order -Column 1 -Order 1 `
-        -Text "<h2 style='color:$AccentColor;'>$HeadingText</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
+        -Text "<h2 style='color:$AccentColor;'>$($HeadingText.ToUpper())</h2><p>Add the right people to this card in the page editor.</p>" | Out-Null
     Add-PnPPageWebPart -Page $Page -DefaultWebPartType People -Section $Order -Column 1 -Order 2 | Out-Null
 }
