@@ -8,21 +8,22 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
-$configuration = Get-Content -LiteralPath $ConfigurationPath -Raw | ConvertFrom-Json
-
-$requiredRootProperties = @('siteTitle', 'siteUrl', 'template', 'page', 'libraries', 'quickLinks', 'importantDates')
-foreach ($property in $requiredRootProperties) {
-    if ($null -eq $configuration.$property) {
-        throw "Configuration is missing required property '$property'."
-    }
+$json = Get-Content -LiteralPath $ConfigurationPath -Raw
+$schemaPath = Join-Path $PSScriptRoot '../config/site.schema.json'
+if (-not (Test-Json -Json $json -SchemaFile $schemaPath -ErrorAction Stop)) {
+    throw "Configuration '$ConfigurationPath' does not match site.schema.json."
 }
+$configuration = $json | ConvertFrom-Json
 
 if ([string]::IsNullOrWhiteSpace($configuration.siteTitle)) {
     throw 'siteTitle cannot be empty.'
 }
 
-if ($configuration.siteUrl -notmatch '^https://') {
-    throw 'siteUrl must be an https URL.'
+$siteUri = $null
+if (-not [Uri]::TryCreate($configuration.siteUrl, [UriKind]::Absolute, [ref]$siteUri) -or
+    $siteUri.Scheme -ne 'https' -or -not $siteUri.Host -or
+    $siteUri.UserInfo -or $siteUri.Query -or $siteUri.Fragment) {
+    throw 'siteUrl must be an absolute https URL without credentials, a query or a fragment.'
 }
 
 $templateScript = Join-Path $PSScriptRoot "../templates/$($configuration.template).ps1"
@@ -30,25 +31,17 @@ if (-not (Test-Path -LiteralPath $templateScript -PathType Leaf)) {
     throw "Unknown page template '$($configuration.template)'. Expected a script at $templateScript."
 }
 
-if ($configuration.page.name -notmatch '^[A-Za-z0-9-]+$') {
-    throw 'page.name may contain only letters, numbers and hyphens.'
-}
-
-if ($configuration.libraries.Count -lt 1) {
-    throw 'At least one document library is required.'
-}
-
-$duplicateTitles = $configuration.libraries |
-    Group-Object -Property title |
-    Where-Object Count -gt 1
-
-if ($duplicateTitles) {
-    throw "Duplicate library title: $($duplicateTitles.Name -join ', ')."
+foreach ($property in @('title', 'url')) {
+    $duplicates = $configuration.libraries |
+        Group-Object -Property $property |
+        Where-Object Count -gt 1
+    if ($duplicates) {
+        throw "Duplicate library ${property}: $($duplicates.Name -join ', ')."
+    }
 }
 
 foreach ($library in $configuration.libraries) {
-    if ([string]::IsNullOrWhiteSpace($library.title) -or
-        $library.url -notmatch '^[A-Za-z0-9-]+$') {
+    if ([string]::IsNullOrWhiteSpace($library.title)) {
         throw "Invalid document library definition: $($library | ConvertTo-Json -Compress)."
     }
 }
@@ -64,11 +57,6 @@ function Test-PnPImageAssetExists {
 
 if ($configuration.PSObject.Properties['heroImage'] -and $configuration.heroImage) {
     Test-PnPImageAssetExists -RelativePath $configuration.heroImage.file
-}
-
-if ($configuration.PSObject.Properties['accentColor'] -and $configuration.accentColor -and
-    $configuration.accentColor -notmatch '^#[0-9A-Fa-f]{6}$') {
-    throw 'accentColor must be a 6-digit hex color, e.g. #5C2D91.'
 }
 
 Write-Host "Configuration '$ConfigurationPath' is valid."

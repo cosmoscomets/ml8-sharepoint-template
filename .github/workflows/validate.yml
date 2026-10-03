@@ -16,11 +16,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Validate configuration
+      - name: Validate all configurations and regression cases
         shell: pwsh
-        run: >-
-          ./scripts/Test-Configuration.ps1
-          -ConfigurationPath ./config/accounting-audit.json
+        run: ./tests/Test-Configuration.Tests.ps1
 
       - name: Install PowerShell analyzer
         shell: pwsh
@@ -29,6 +27,10 @@ jobs:
       - name: Analyze PowerShell
         shell: pwsh
         run: |
-          $results = Invoke-ScriptAnalyzer -Path ./scripts -Recurse -Severity Error
+          $results = @(
+            foreach ($path in @('./scripts', './templates', './tests')) {
+              Invoke-ScriptAnalyzer -Path $path -Recurse -Severity Error
+            }
+          )
           $results | Format-Table
           if ($results) { throw 'PowerShell analysis failed.' }

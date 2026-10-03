@@ -161,8 +161,8 @@ its base64 form, or its password to the repository.
 
 1. Add a config file under `config/`, following `config/site.schema.json`
    (it must include a `siteUrl` and a `template` — currently `document-hub`
-   or `landing-page`; add a new file under `templates/` for a different
-   layout).
+   or `landing-page`; for a different layout, add a new file under
+   `templates/` and add its name to the schema's `template` enum).
 2. Copy an existing workflow (e.g. `deploy-administration.yml`) to a new
    `.github/workflows/deploy-<site>.yml`, pointing its `paths` filter and
    `ConfigurationPath` at the new config file.
@@ -188,8 +188,21 @@ its base64 form, or its password to the repository.
 
 ## Local validation
 
+Requires PowerShell 7.4 or later. Validation enforces `config/site.schema.json`,
+checks for duplicate library titles and URLs (case-insensitively), validates
+the site URL, and checks that the template and hero image exist. It runs
+offline without PnP PowerShell or tenant credentials.
+
+Validate every site and run the regression checks (also run in CI):
+
 ```powershell
-pwsh ./scripts/Test-Configuration.ps1 \
+pwsh -NoProfile -File ./tests/Test-Configuration.Tests.ps1
+```
+
+Validate one site:
+
+```powershell
+pwsh ./scripts/Test-Configuration.ps1 `
   -ConfigurationPath ./config/accounting-audit.json
 ```
 
@@ -198,9 +211,9 @@ pwsh ./scripts/Test-Configuration.ps1 \
 Interactive authentication is supported for development:
 
 ```powershell
-pwsh ./scripts/Deploy-SharePoint.ps1 \
-  -ConfigurationPath ./config/accounting-audit.json \
-  -SiteUrl "https://tenant.sharepoint.com/sites/AccountingAudit" \
+pwsh ./scripts/Deploy-SharePoint.ps1 `
+  -ConfigurationPath ./config/accounting-audit.json `
+  -SiteUrl "https://tenant.sharepoint.com/sites/AccountingAudit" `
   -ClientId "00000000-0000-0000-0000-000000000000"
 ```
 
