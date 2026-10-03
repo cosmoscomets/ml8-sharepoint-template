@@ -15,6 +15,7 @@
   "page": {
     "name": "Board-WIP-Home",
     "title": "Board – WIP",
+    "summary": "Prepare and review board papers here. Move finalised, approved material to the Board site.",
     "description": "Board – WIP is the working space for board material that isn't ready for the boardroom yet. Draft Papers holds board papers still being written or reviewed, and Working Documents covers the supporting analysis, data and correspondence behind them. Once a paper is finalised and approved, it moves across to the main Board site — nothing here should be treated as the approved record."
   },
   "libraries": [

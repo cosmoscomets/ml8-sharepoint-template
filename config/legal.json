@@ -15,6 +15,7 @@
   "page": {
     "name": "Legal-Home",
     "title": "Legal",
+    "summary": "Contracts, compliance records and legal correspondence in one reference point.",
     "description": "The Legal site holds Moonlight Resources' contractual and regulatory record. Contracts covers executed agreements (suppliers, tenements, joint ventures), Compliance Documents tracks obligations under the Corporations Act, mining legislation and other regulatory regimes, and Legal Correspondence holds formal legal advice and correspondence with external counsel. Treat this as the authoritative source before assuming what a contract or obligation actually says."
   },
   "libraries": [

@@ -34,8 +34,26 @@ scripts/Grant-SitePermission.ps1            One-time per-site permission grant (
 ```
 
 Each site's deploy workflow triggers only on changes to that site's own config
-file, its own template, or the shared scripts — editing one site's config
-never deploys another site.
+file, its own template, or shared components, scripts and assets — editing one
+site's config never deploys another site.
+
+## Page design
+
+Both layouts use a split introduction and panoramic image, native SharePoint
+Quick Links with library descriptions, and a documents / recent activity row.
+The landing page adds news and events; the document hub pairs planning
+reminders with events. Headings keep their natural case, with subtle section
+backgrounds and the configured accent color. Empty team placeholders are omitted.
+
+Use the optional `page.summary` for a short introduction. The complete
+`page.description` then appears under **About this site**. If no summary is
+provided, the description stays in the introduction. Quick Links colors and
+responsive behavior follow the site's SharePoint theme.
+
+Run `pwsh -NoProfile -File ./tests/Test-Templates.ps1` to check every site's
+layout, link payloads, HTML escaping and optional-content cases offline.
+These checks do not render SharePoint: review a deployed page on desktop and
+mobile before rolling the design out across the tenant.
 
 ## GitHub setup
 

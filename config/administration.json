@@ -11,6 +11,7 @@
   "page": {
     "name": "Administration-Home",
     "title": "Administration",
+    "summary": "Everyday documents, approved procedures and reusable templates for the team.",
     "description": "The Administration site is the shared home base for day-to-day operations at Moonlight Resources. General Documents holds the paperwork that doesn't have a more specific home, Policies and Procedures is the source of truth for how things are done, and Templates gives you a starting point instead of formatting from scratch. If you're not sure where something belongs company-wide, it probably starts here."
   },
   "libraries": [

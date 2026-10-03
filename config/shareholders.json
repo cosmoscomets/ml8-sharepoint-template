@@ -15,6 +15,7 @@
   "page": {
     "name": "Shareholders-Home",
     "title": "Shareholders",
+    "summary": "Shareholder communications and registry forms. Public market disclosures are on Investor Relations.",
     "description": "The Shareholders site supports the team handling day-to-day shareholder administration for Moonlight Resources. Shareholder Communications holds notices, letters and other correspondence sent to shareholders, and Forms covers the registry-related paperwork shareholders are asked to complete (e.g. change of address, dividend instructions). For public market disclosures, see the Investor Relations site instead — this one is about servicing existing shareholders directly."
   },
   "libraries": [

@@ -15,6 +15,7 @@
   "page": {
     "name": "Finance-Home",
     "title": "Finance",
+    "summary": "Management reports, budgets and forecasts to support planning and financial decisions.",
     "description": "The Finance site supports the day-to-day work of running Moonlight Resources' finance function. Financial Reports holds management and statutory reporting, Budgets and Forecasts covers the numbers the business plans against, and Policies and Procedures sets out the finance controls the team operates under. This complements Accounting & Audit — Finance is where the numbers are prepared and analysed; Accounting & Audit is where the audited record sits."
   },
   "libraries": [

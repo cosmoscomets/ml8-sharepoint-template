@@ -15,6 +15,7 @@
   "page": {
     "name": "Board-Home",
     "title": "Board",
+    "summary": "Finalised board papers, approved minutes and governing documents. Drafts belong in Board – WIP.",
     "description": "The Board site holds the finalised record for the Moonlight Resources board of directors. Board Papers contains the agendas and papers circulated ahead of each meeting, Meeting Minutes holds the approved record once a meeting has concluded, and Policies and Charters covers the board's own governing documents (charters, terms of reference, delegations of authority). Only finalised, board-approved material belongs here — drafts and works in progress live on the Board – WIP site instead."
   },
   "libraries": [

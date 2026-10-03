@@ -20,6 +20,10 @@ jobs:
         shell: pwsh
         run: ./tests/Test-Configuration.Tests.ps1
 
+      - name: Check page layouts offline
+        shell: pwsh
+        run: ./tests/Test-Templates.ps1
+
       - name: Install PowerShell analyzer
         shell: pwsh
         run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force

@@ -19,6 +19,7 @@ $cases = @(
     @{ Name = 'invalid date'; Change = { param($config) $config.importantDates = @(42) }; Expected = 'schema' }
     @{ Name = 'invalid CTA'; Change = { param($config) $config.heroCta = @{ label = 'Open' } }; Expected = 'schema' }
     @{ Name = 'invalid color'; Change = { param($config) $config.accentColor = 'red' }; Expected = 'schema' }
+    @{ Name = 'invalid summary'; Change = { param($config) $config.page.summary = 42 }; Expected = 'schema' }
     @{ Name = 'template traversal'; Change = { param($config) $config.template = '../scripts/Deploy-SharePoint' }; Expected = 'schema' }
     @{ Name = 'empty libraries'; Change = { param($config) $config.libraries = @() }; Expected = 'schema' }
     @{ Name = 'duplicate titles'; Change = { param($config) $config.libraries[1].title = $config.libraries[0].title.ToUpperInvariant() }; Expected = 'Duplicate library title' }
@@ -55,6 +56,7 @@ try {
     }
     $config.quickLinks = @()
     $config.importantDates = @()
+    $config.page.Remove('summary')
     $config | ConvertTo-Json -Depth 20 | Set-Content -LiteralPath $temporaryFile
     & $validator -ConfigurationPath $temporaryFile
 }
