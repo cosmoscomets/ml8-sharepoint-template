@@ -5,8 +5,6 @@ on:
     branches: [main]
     paths:
       - config/investor-relations.json
-      - branding/**
-      - scripts/SiteBranding.ps1
       - scripts/Deploy-SharePoint.ps1
       - scripts/Test-Configuration.ps1
       - templates/document-hub.ps1

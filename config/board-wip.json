@@ -7,7 +7,7 @@
     "file": "assets/board-wip-hero.jpg",
     "alt": "A hand signing a document with a pen, close up in black and white"
   },
-  "accentColor": "#153E64",
+  "accentColor": "#4D6299",
   "heroCta": {
     "label": "View draft papers",
     "url": "DraftPapers"

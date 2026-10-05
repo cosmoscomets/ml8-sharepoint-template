@@ -24,10 +24,6 @@ jobs:
         shell: pwsh
         run: ./tests/Test-Templates.ps1
 
-      - name: Check company branding offline
-        shell: pwsh
-        run: ./tests/Test-Branding.ps1
-
       - name: Install PowerShell analyzer
         shell: pwsh
         run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force

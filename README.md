@@ -39,36 +39,6 @@ site's config never deploys another site.
 
 ## Page design
 
-### Shared Moonlight branding
-
-Every deployment applies `branding/moonlight.json` to the target site before
-replacing its managed page. It uses the public website's blue `#153E64`, navy
-`#0B2141`, eucalyptus accent `#D4E09B`, and existing Moonlight logo. The
-white compact header displays the department title with horizontal navigation.
-Existing Australian landscape images remain unchanged.
-
-The palette is based on the [Moonlight website stylesheet](https://ml8.com.au/wp-content/uploads/uicore-global.css)
-(checked 5 October 2026); lighter/darker blue steps are derived for SharePoint
-interaction states. Native web parts choose which palette slots they use;
-`accent` does not recolor every button. Page heading `accentColor` values are
-aligned with the website blue.
-
-Branding uses the site's [ApplyTheme REST endpoint](https://learn.microsoft.com/en-us/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-rest-api#applytheme)
-and `Set-PnPWebHeader`. It uses the existing connection and does not register a
-tenant theme or change app permissions. Verify the first deployment with the
-tenant's app permissions and branding policies; offline tests cannot verify them.
-Theme/header errors stop deployment before the managed page is removed.
-
-After publishing, navigation ensures a Home link and the configured quick
-links exist. An existing Home node is updated; other links are preserved and
-matched by URL to avoid duplicates. Existing custom navigation order is kept.
-Updates to `branding/` or `scripts/SiteBranding.ps1` trigger all site workflows.
-
-Run `pwsh -NoProfile -File ./tests/Test-Branding.ps1` for offline theme payload,
-header and repeat-deployment navigation checks across all sites.
-
-### Page layouts
-
 Both layouts use a split introduction and panoramic image, native SharePoint
 Quick Links with library descriptions, and a documents / recent activity row.
 The landing page adds news and events; the document hub pairs planning

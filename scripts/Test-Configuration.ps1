@@ -7,8 +7,6 @@ param(
 
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
-. "$PSScriptRoot/SiteBranding.ps1"
-$null = Get-MoonlightBranding
 
 $json = Get-Content -LiteralPath $ConfigurationPath -Raw
 $schemaPath = Join-Path $PSScriptRoot '../config/site.schema.json'
