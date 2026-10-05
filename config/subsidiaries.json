@@ -7,7 +7,7 @@
     "file": "assets/subsidiaries-hero.jpg",
     "alt": "Sydney Harbour Bridge and Opera House lit up at night"
   },
-  "accentColor": "#4D6299",
+  "accentColor": "#153E64",
   "heroCta": {
     "label": "View subsidiary records",
     "url": "SubsidiaryRecords"

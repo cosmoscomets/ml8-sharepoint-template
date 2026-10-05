@@ -21,6 +21,8 @@ Set-StrictMode -Version Latest
 
 & "$PSScriptRoot/Test-Configuration.ps1" -ConfigurationPath $ConfigurationPath
 $configuration = Get-Content -LiteralPath $ConfigurationPath -Raw | ConvertFrom-Json
+. "$PSScriptRoot/SiteBranding.ps1"
+$branding = Get-MoonlightBranding
 
 Import-Module PnP.PowerShell -ErrorAction Stop
 
@@ -67,6 +69,7 @@ try {
     Write-Host "Provisioning $($configuration.siteTitle) at $SiteUrl"
 
     $script:webServerRelativeUrl = (Get-PnPWeb).ServerRelativeUrl.TrimEnd('/')
+    Set-MoonlightBranding -Configuration $configuration -SiteUrl $SiteUrl -Branding $branding
 
     $primaryLibraryId = $null
     $primaryLibraryTitle = $null
@@ -108,7 +111,7 @@ try {
         $heroImageAlt = $configuration.heroImage.alt
     }
 
-    $accentColor = if ($configuration.accentColor) { $configuration.accentColor } else { '#4D6299' }
+    $accentColor = if ($configuration.accentColor) { $configuration.accentColor } else { $branding.theme.palette.themePrimary }
 
     $pageName = $configuration.page.name
     $pageFileName = "$pageName.aspx"
@@ -136,6 +139,7 @@ try {
 
     Set-PnPPage -Identity $pageFileName -Publish | Out-Null
     Set-PnPHomePage -RootFolderRelativeUrl "SitePages/$pageFileName" | Out-Null
+    Sync-MoonlightNavigation -Configuration $configuration -SiteUrl $SiteUrl
 
     Write-Host "Deployment completed. Home page: SitePages/$pageFileName"
 }

@@ -7,7 +7,7 @@
     "file": "assets/legal-hero.jpg",
     "alt": "A bronze Lady Justice statue holding scales and a sword"
   },
-  "accentColor": "#4D6299",
+  "accentColor": "#153E64",
   "heroCta": {
     "label": "View contracts",
     "url": "Contracts"
