@@ -25,8 +25,7 @@ function Set-MoonlightBranding {
 
     # Apply directly to the connected site; do not register or change tenant themes.
     # https://learn.microsoft.com/sharepoint/dev/declarative-customization/site-theming/sharepoint-site-theming-rest-api#applytheme
-    # Force a CLR string: PnP's object parameter otherwise serializes the PSObject wrapper.
-    [string] $body = @{
+    $body = @{
         name = $Branding.name
         themeJson = ($Branding.theme | ConvertTo-Json -Depth 10 -Compress)
     } | ConvertTo-Json -Compress

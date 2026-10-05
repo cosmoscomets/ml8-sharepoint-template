@@ -3,32 +3,12 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 . "$PSScriptRoot/../scripts/SiteBranding.ps1"
 
-# Reproduce PnP's compiled object parameter binding and request serialization.
-# A PowerShell-only mock misses PSObject wrappers emitted by ConvertTo-Json.
-# https://github.com/pnp/powershell/blob/dev/src/Commands/Base/InvokeSPRestMethod.cs
-$wireType = Add-Type -PassThru -TypeDefinition @'
-using System.Management.Automation;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-[Cmdlet("ConvertTo", "MoonlightWireContent")]
-public class MoonlightWireContent : PSCmdlet {
-    [Parameter(Mandatory = true)] public object Content;
-    protected override void ProcessRecord() {
-        WriteObject(Content is string ? Content.ToString() : JsonSerializer.Serialize(Content,
-            new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.IgnoreCycles }));
-    }
-}
-'@
-Import-Module $wireType.Assembly
-
 $branding = Get-MoonlightBranding
 $script:calls = [Collections.Generic.List[object]]::new()
 $script:nodes = [Collections.Generic.List[object]]::new()
 function Invoke-PnPSPRestMethod {
     param($Method, $Url, $Content, $ContentType)
-    $options = @{} + $PSBoundParameters
-    $options.Content = ConvertTo-MoonlightWireContent -Content $Content
-    $script:calls.Add(@{ Kind = 'Theme'; Options = $options })
+    $script:calls.Add(@{ Kind = 'Theme'; Options = @{} + $PSBoundParameters })
 }
 function Publish-PnPImageAsset {
     param($RelativePath)
@@ -63,10 +43,6 @@ foreach ($file in $configs) {
     Set-MoonlightBranding -Configuration $config -SiteUrl $config.siteUrl -Branding $branding
     $theme = $calls[0].Options
     $payload = $theme.Content | ConvertFrom-Json
-    $keys = @($payload.PSObject.Properties.Name | Sort-Object)
-    if (($keys -join ',') -ne 'name,themeJson' -or $payload.themeJson -isnot [string]) {
-        throw 'ApplyTheme must receive only name and a JSON string themeJson, not PowerShell Members metadata.'
-    }
     $palette = ($payload.themeJson | ConvertFrom-Json).palette
     if ($theme.Method -ne 'Post' -or $theme.Url -ne "$($config.siteUrl)/_api/thememanager/ApplyTheme" -or
         $palette.themePrimary -ne '#153E64' -or $palette.accent -ne '#D4E09B' -or
